@@ -1,0 +1,32 @@
+@startuml Layers-model
+
+
+' Layers
+class CodingLayer extends AbstractLayer{
+    + codingLayer(List[Node], Tensor, Tensor, Tensor): List[Node]
+    - codingIterations(): void
+}
+
+class ConvolutionalLayer extends AbstractLayer{
+    + convolutionalLayer(nodes: List[Node]): List[Node]
+    - calculateY(nodes: List[Node]): void
+    - slidingWindowTensor(Node): Tensor
+}
+
+
+class PoolingLayer extends AbstractLayer{
+    + poolingLayer(nodes: List[Node]): Tensor
+}
+
+class HiddenLayer extends AbstractLayer{
+    + hiddenLayer(Tensor): Float
+}
+
+abstract class AbstractLayer {
+}
+
+
+
+
+
+@enduml
